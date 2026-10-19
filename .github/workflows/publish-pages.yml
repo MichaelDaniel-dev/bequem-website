@@ -1,37 +1,41 @@
-name: Prepare BEQUEM static Pages branch
+name: Sync BEQUEM client preview to gh-pages
 on:
   push:
     branches: [main]
+    paths:
+      - 'index.html'
+      - 'assets/**'
+      - '.github/workflows/publish-pages.yml'
   workflow_dispatch:
 permissions:
   contents: write
 jobs:
-  prepare:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source and target branch
+      - name: Check out source
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: true
-      - name: Publish static preview to gh-pages
+      - name: Publish the website as static files
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p /tmp/bequem-public
-          cat package/part-*.b64 | base64 --decode > /tmp/bequem-preview.zip
-          unzip -q /tmp/bequem-preview.zip -d /tmp/bequem-public
-          test -s /tmp/bequem-public/index.html
-          test -d /tmp/bequem-public/assets
-          touch /tmp/bequem-public/.nojekyll
+          mkdir -p /tmp/bequem-static/assets
+          cp index.html /tmp/bequem-static/index.html
+          cp -a assets/. /tmp/bequem-static/assets/
+          touch /tmp/bequem-static/.nojekyll
+          test -s /tmp/bequem-static/index.html
+          test -d /tmp/bequem-static/assets
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin gh-pages
           git switch gh-pages
           find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
-          cp -a /tmp/bequem-public/. .
+          cp -a /tmp/bequem-static/. .
           git add -A
           if ! git diff --cached --quiet; then
-            git commit -m "Publish BEQUEM V12 static client preview"
+            git commit -m "Publish BEQUEM V13 client preview"
             git push origin gh-pages
           fi
