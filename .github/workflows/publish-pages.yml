@@ -1,43 +1,37 @@
-name: Publish BEQUEM Client Preview
+name: Prepare BEQUEM static Pages branch
 on:
   push:
     branches: [main]
   workflow_dispatch:
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-concurrency:
-  group: github-pages
-  cancel-in-progress: true
+  contents: write
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  prepare:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout preview files
+      - name: Checkout source and target branch
         uses: actions/checkout@v4
-      - name: Reassemble and validate website
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Publish static preview to gh-pages
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p _site
-          cat package/part-*.b64 | base64 --decode > /tmp/bequem-website.zip
-          unzip -q /tmp/bequem-website.zip -d _site
-          test -s _site/index.html
-          test -d _site/assets
-          touch _site/.nojekyll
-          echo "Files: $(find _site -type f | wc -l)"
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-      - name: Deploy Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          mkdir -p /tmp/bequem-public
+          cat package/part-*.b64 | base64 --decode > /tmp/bequem-preview.zip
+          unzip -q /tmp/bequem-preview.zip -d /tmp/bequem-public
+          test -s /tmp/bequem-public/index.html
+          test -d /tmp/bequem-public/assets
+          touch /tmp/bequem-public/.nojekyll
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin gh-pages
+          git switch gh-pages
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+          cp -a /tmp/bequem-public/. .
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish BEQUEM V12 static client preview"
+            git push origin gh-pages
+          fi
