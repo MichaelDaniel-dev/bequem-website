@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f3efe6"><meta name="description" content="BEQUEM — Gen Z lifestyle apparel Shopify concept prototype: interactive hanger rail, Men and Women, shop experience.">
-<title>BEQUEM — The Everyday Edit | Concept Preview</title>
+<title>BEQUEM — V13 Client Preview | Everyday, Better.</title>
 
 <style>
 :root{--ink:#292827;--cream:#f3efe6;--sand:#b9a588;--sage:#78816f;--white:#fff;--light:#e8e6e0;--muted:#74736f;--line:#d9d7d0;--r:8px;--display:'Manrope','Arial',sans-serif;--body:'DM Sans','Arial',sans-serif}
@@ -178,6 +178,72 @@
 }
 </style>
 
+
+<style id="bq-v13-layout">
+/* BEQUEM V13: edge-to-edge editorial sections and a single consistent page gutter. */
+:root{--bq-gutter:clamp(17px,3.2vw,70px)}
+html,body{max-width:100%;overflow-x:clip}
+.wrap{max-width:none!important;width:100%;margin-inline:0!important;padding-inline:var(--bq-gutter)!important}
+.hero-in{max-width:none!important;width:100%;padding-left:var(--bq-gutter)!important;padding-right:var(--bq-gutter)!important}
+.bqrail__inner{max-width:none!important;width:100%;padding-inline:var(--bq-gutter)!important}
+.builder-shell{max-width:none!important;width:100%}
+.header-in,.footer-inner{max-width:none!important}
+.editorial,.social,.favorites,.categories,.builder-section,.hero,.services{width:100%}
+/* Dramatic large imagery, no card border, no visible image frame. */
+#favorites .product-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2.0vw,35px);align-items:start}
+#favorites .product-card{border:0!important;background:transparent!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important}
+#favorites .pc-visual{height:auto!important;aspect-ratio:3/4.25;min-height:0!important;background:transparent!important;overflow:visible!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+#favorites .pc-visual .photo-shot{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border-radius:0!important;border:0!important;box-shadow:none!important;background:transparent!important;overflow:visible!important}
+#favorites .pc-visual .photo-shot::after{display:none!important}
+#favorites .pc-visual .photo-shot img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center bottom!important;mix-blend-mode:multiply;filter:contrast(1.015);transform:none!important;background:transparent!important;border:0!important;padding:0!important}
+#favorites .product-card:hover .pc-visual .photo-shot img{transform:translateY(-5px) scale(1.025)!important;transition:transform .42s ease!important}
+#favorites .pc-chip{top:10px;left:10px;background:rgba(255,255,255,.87)!important;font-size:9px;letter-spacing:.1em;padding:6px 9px!important}
+#favorites .pc-add{right:8px;bottom:12px;z-index:5;border-radius:50%;background:#292827;color:white;width:44px;height:44px}
+#favorites .pc-like{right:10px;top:8px;background:rgba(255,255,255,.8)}
+#favorites .pc-info{padding-top:10px;gap:10px;align-items:start}
+#favorites .pc-info strong{font-size:clamp(12px,1.1vw,17px);letter-spacing:-.02em}
+#favorites .pc-price{font-size:clamp(12px,1.05vw,16px)}
+#favorites .shop-toolbar{margin-bottom:18px}
+/* Rail: 10 pieces per edit, individual invisible click zones still drive opening. */
+.bqrail__stage{margin-inline:calc(-1*min(15px,1.5vw));width:calc(100% + 2*min(15px,1.5vw))}
+/* Shop in the fullscreen garment exploration. */
+.bqrail__sides{margin-top:24px}
+.bqrail__viewer-actions{margin-top:17px;padding-top:14px}
+.bqrail__purchase{margin-top:20px;border-top:1px solid rgba(41,40,39,.13);padding-top:14px}
+.bqrail__purchase-line{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:10px;letter-spacing:.075em}
+.bqrail__purchase-line strong{font-size:11px}.bqrail__purchase-line span{color:#77766f;font-size:9px}
+.bqrail__sizes{display:flex;gap:8px;margin-top:12px}
+.bqrail__sizes button{width:51px;height:42px;border:1px solid #c5c1b8;background:transparent;font-size:11px;font-weight:750}
+.bqrail__sizes button[aria-pressed="true"]{background:#292827;border-color:#292827;color:white}
+.bqrail__purchase-bottom{display:grid;grid-template-columns:124px minmax(0,1fr);gap:10px;margin-top:14px}
+.bqrail__qty{display:flex;align-items:center;border:1px solid #c5c1b8;justify-content:space-between;min-height:48px}
+.bqrail__qty button{border:0;background:none;font-size:20px;width:35px;height:46px}.bqrail__qty output{font-size:12px;font-weight:800}
+.bqrail__add-bag{border:1px solid #292827;background:#292827!important;color:#fff!important;display:flex;align-items:center;justify-content:center;gap:15px;min-height:48px;font-size:11px!important;font-weight:800!important;letter-spacing:.055em!important}
+.bqrail__cart-hint{display:block;margin-top:8px;font-size:9px;color:#77766f;letter-spacing:.08em}
+@media(max-width:1050px){#favorites .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){
+ :root{--bq-gutter:16px}
+ #favorites .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px}
+ #favorites .pc-visual{aspect-ratio:3/4.5}
+ #favorites .pc-info{padding-top:8px;display:block}
+ #favorites .pc-price{margin-top:4px}
+ #favorites .pc-add{width:35px;height:35px;right:4px;bottom:8px;font-size:20px}
+ .bqrail__viewer{overflow-y:auto;overscroll-behavior:contain}
+ .bqrail__viewer-content{overflow:visible;flex:0 0 auto!important;min-height:calc(100dvh - 100px);padding-bottom:20px}
+ .bqrail__viewer-img-wrap{height:36dvh!important;min-height:225px!important;flex:0 0 auto!important}
+ .bqrail__viewer-photo{max-height:36dvh!important}
+ .bqrail__viewer-name{font-size:30px!important;margin-bottom:4px}
+ .bqrail__viewer-kicker{margin-bottom:5px}
+ .bqrail__viewer-meta{margin-bottom:4px}
+ .bqrail__sides{margin-top:12px}
+ .bqrail__viewer-actions{margin-top:7px}
+ .bqrail__purchase{margin-top:12px;padding-top:12px}
+ .bqrail__sizes button{width:46px;height:38px}
+ .bqrail__purchase-bottom{margin-top:10px}
+}
+@media(max-width:380px){.bqrail__purchase-line span{display:none}}
+</style>
+
 </head>
 <body>
 <div class="ann">✳ &nbsp; THIS IS YOUR EVERYDAY ROTATION. <span>BETTER BY DESIGN.</span> &nbsp; ✳</div>
@@ -202,76 +268,105 @@
 <section class="categories wrap" id="categories"><div class="sec-head"><div><p class="overline" style="margin-bottom:12px">01 / THE TWO SIDES</p><h2>Pick your<br>side.</h2></div><p class="desc">Same energy. Different fits. Find what feels like you.</p></div>
 <div class="categories-grid"><a href="#rail" class="category men" onclick="setGender('men')"><img loading="lazy" src="assets/embedded-43b72939414e3d.webp" alt="BEQUEM men collection concept image"><span class="corner">01 — THE ESSENTIALS</span><span class="badge-top">FIND YOUR FIT ↗</span><span class="category-name"><strong>MEN.</strong><i>↗</i></span></a><a href="#rail" class="category women" onclick="setGender('women')"><img loading="lazy" src="assets/embedded-0b0be50fc53666.webp" alt="BEQUEM women collection concept image"><span class="corner">02 — THE ESSENTIALS</span><span class="badge-top">FIND YOUR FIT ↗</span><span class="category-name"><strong>WOMEN.</strong><i>↗</i></span></a></div></section>
 <!-- ON THE RAIL v3: independent click targets; no automatic focus -->
-<section id="rail" class="bqrail" data-bqrail="demo" aria-label="BEQUEM ON THE RAIL interactive product showcase" data-current-index="-1">
- <div class="bqrail__inner">
-  <div class="bqrail__head">
-   <div><div class="bqrail__eyebrow">BEQUEM / THE EVERYDAY ROTATION <span aria-hidden="true">✳</span></div><h2 class="bqrail__title">ON THE<br><em>RAIL.</em></h2></div>
-   <div class="bqrail__header-controls">
-    <div class="bqrail__audience" role="group" aria-label="Shop gender"><button class="bqrail__audience-btn" type="button" data-select-audience="men" aria-pressed="true">MEN</button><button class="bqrail__audience-btn" type="button" data-select-audience="women" aria-pressed="false">WOMEN</button></div>
-    <div class="bqrail__directions"><button class="bqrail__arrow" type="button" data-step="-1" aria-label="Previous T-shirt">←</button><button class="bqrail__arrow" type="button" data-step="1" aria-label="Next T-shirt">→</button></div>
-   </div>
-  </div>
-  <div class="bqrail__lead"><p>Pick a hanger. Find your next everyday favorite.</p><span class="bqrail__instruction">HOVER / TAP &nbsp; · &nbsp; ↔ SWIPE</span></div>
-  <div class="bqrail__stage" aria-label="Interactive clothes rail">
-   <div class="bqrail__bar" aria-hidden="true"></div>
-   <div class="bqrail__rack"><button class="bqrail__item" type="button" data-audience="men" data-name="Cloud Essential Tee" data-price="EGP 690" data-color="WHITE" data-front="assets/embedded-a16b1d402200d2.webp" data-back="assets/embedded-45c78fd78f671f.webp" data-side="assets/embedded-08156c6d200fb7.webp" data-product-url="" aria-pressed="false" aria-label="Explore Cloud Essential Tee">
-<img data-view="front" src="assets/embedded-a16b1d402200d2.webp" alt="Cloud Essential Tee front" loading="eager" draggable="false"><img data-view="side" src="assets/embedded-08156c6d200fb7.webp" alt="Cloud Essential Tee side" loading="lazy" draggable="false"><span class="bqrail__item-label">01 / WHITE</span>
+<section aria-label="BEQUEM ON THE RAIL interactive product showcase" class="bqrail" data-bqrail="demo" data-current-index="-1" id="rail">
+<div class="bqrail__inner">
+<div class="bqrail__head">
+<div><div class="bqrail__eyebrow">BEQUEM / THE EVERYDAY ROTATION <span aria-hidden="true">✳</span></div><h2 class="bqrail__title">ON THE<br/><em>RAIL.</em></h2></div>
+<div class="bqrail__header-controls">
+<div aria-label="Shop gender" class="bqrail__audience" role="group"><button aria-pressed="true" class="bqrail__audience-btn" data-select-audience="men" type="button">MEN</button><button aria-pressed="false" class="bqrail__audience-btn" data-select-audience="women" type="button">WOMEN</button></div>
+<div class="bqrail__directions"><button aria-label="Previous T-shirt" class="bqrail__arrow" data-step="-1" type="button">←</button><button aria-label="Next T-shirt" class="bqrail__arrow" data-step="1" type="button">→</button></div>
+</div>
+</div>
+<div class="bqrail__lead"><p>Pick a hanger. Find your next everyday favorite.</p><span class="bqrail__instruction">HOVER / TAP   ·   ↔ SWIPE</span></div>
+<div aria-label="Interactive clothes rail" class="bqrail__stage">
+<div aria-hidden="true" class="bqrail__bar"></div>
+<div class="bqrail__rack"><button aria-label="Explore Cloud Essential Tee" aria-pressed="false" class="bqrail__item" data-audience="men" data-back="assets/embedded-45c78fd78f671f.webp" data-color="WHITE" data-front="assets/embedded-a16b1d402200d2.webp" data-name="Cloud Essential Tee" data-price="EGP 690" data-product-url="" data-side="assets/embedded-08156c6d200fb7.webp" type="button">
+<img alt="Cloud Essential Tee front" data-view="front" draggable="false" loading="eager" src="assets/embedded-a16b1d402200d2.webp"/><img alt="Cloud Essential Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-08156c6d200fb7.webp"/><span class="bqrail__item-label">01 / WHITE</span>
 </button>
-<button class="bqrail__item" type="button" data-audience="men" data-name="Sand Relaxed Tee" data-price="EGP 720" data-color="SAND" data-front="assets/embedded-b53a2c6f64dee7.webp" data-back="assets/embedded-bef168600eb398.webp" data-side="assets/embedded-ebdb36c05b320a.webp" data-product-url="" aria-pressed="false" aria-label="Explore Sand Relaxed Tee">
-<img data-view="front" src="assets/embedded-b53a2c6f64dee7.webp" alt="Sand Relaxed Tee front" loading="eager" draggable="false"><img data-view="side" src="assets/embedded-ebdb36c05b320a.webp" alt="Sand Relaxed Tee side" loading="lazy" draggable="false"><span class="bqrail__item-label">02 / SAND</span>
+<button aria-label="Explore Sand Relaxed Tee" aria-pressed="false" class="bqrail__item" data-audience="men" data-back="assets/embedded-bef168600eb398.webp" data-color="SAND" data-front="assets/embedded-b53a2c6f64dee7.webp" data-name="Sand Relaxed Tee" data-price="EGP 720" data-product-url="" data-side="assets/embedded-ebdb36c05b320a.webp" type="button">
+<img alt="Sand Relaxed Tee front" data-view="front" draggable="false" loading="eager" src="assets/embedded-b53a2c6f64dee7.webp"/><img alt="Sand Relaxed Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-ebdb36c05b320a.webp"/><span class="bqrail__item-label">02 / SAND</span>
 </button>
-<button class="bqrail__item" type="button" data-audience="men" data-name="Charcoal Boxy Tee" data-price="EGP 740" data-color="CHARCOAL" data-front="assets/embedded-a8eae638e9c4c7.webp" data-back="assets/embedded-e76bbebaae9648.webp" data-side="assets/embedded-8df4fad8b186f0.webp" data-product-url="" aria-pressed="false" aria-label="Explore Charcoal Boxy Tee">
-<img data-view="front" src="assets/embedded-a8eae638e9c4c7.webp" alt="Charcoal Boxy Tee front" loading="eager" draggable="false"><img data-view="side" src="assets/embedded-8df4fad8b186f0.webp" alt="Charcoal Boxy Tee side" loading="lazy" draggable="false"><span class="bqrail__item-label">03 / CHARCOAL</span>
+<button aria-label="Explore Charcoal Boxy Tee" aria-pressed="false" class="bqrail__item" data-audience="men" data-back="assets/embedded-e76bbebaae9648.webp" data-color="CHARCOAL" data-front="assets/embedded-a8eae638e9c4c7.webp" data-name="Charcoal Boxy Tee" data-price="EGP 740" data-product-url="" data-side="assets/embedded-8df4fad8b186f0.webp" type="button">
+<img alt="Charcoal Boxy Tee front" data-view="front" draggable="false" loading="eager" src="assets/embedded-a8eae638e9c4c7.webp"/><img alt="Charcoal Boxy Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-8df4fad8b186f0.webp"/><span class="bqrail__item-label">03 / CHARCOAL</span>
 </button>
-<button class="bqrail__item" type="button" data-audience="men" data-name="Sage Everyday Tee" data-price="EGP 720" data-color="SAGE" data-front="assets/embedded-a4a8640fadc729.webp" data-back="assets/embedded-451b2370e8988e.webp" data-side="assets/embedded-91a0cf214f95e1.webp" data-product-url="" aria-pressed="false" aria-label="Explore Sage Everyday Tee">
-<img data-view="front" src="assets/embedded-a4a8640fadc729.webp" alt="Sage Everyday Tee front" loading="lazy" draggable="false"><img data-view="side" src="assets/embedded-91a0cf214f95e1.webp" alt="Sage Everyday Tee side" loading="lazy" draggable="false"><span class="bqrail__item-label">04 / SAGE</span>
+<button aria-label="Explore Sage Everyday Tee" aria-pressed="false" class="bqrail__item" data-audience="men" data-back="assets/embedded-451b2370e8988e.webp" data-color="SAGE" data-front="assets/embedded-a4a8640fadc729.webp" data-name="Sage Everyday Tee" data-price="EGP 720" data-product-url="" data-side="assets/embedded-91a0cf214f95e1.webp" type="button">
+<img alt="Sage Everyday Tee front" data-view="front" draggable="false" loading="lazy" src="assets/embedded-a4a8640fadc729.webp"/><img alt="Sage Everyday Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-91a0cf214f95e1.webp"/><span class="bqrail__item-label">04 / SAGE</span>
 </button>
-<button class="bqrail__item" type="button" data-audience="men" data-name="Navy Studio Tee" data-price="EGP 750" data-color="NAVY" data-front="assets/embedded-09203d7e383897.webp" data-back="assets/embedded-eb0bf2cb71fe8d.webp" data-side="assets/embedded-42c6cd5e39e3be.webp" data-product-url="" aria-pressed="false" aria-label="Explore Navy Studio Tee">
-<img data-view="front" src="assets/embedded-09203d7e383897.webp" alt="Navy Studio Tee front" loading="lazy" draggable="false"><img data-view="side" src="assets/embedded-42c6cd5e39e3be.webp" alt="Navy Studio Tee side" loading="lazy" draggable="false"><span class="bqrail__item-label">05 / NAVY</span>
+<button aria-label="Explore Navy Studio Tee" aria-pressed="false" class="bqrail__item" data-audience="men" data-back="assets/embedded-eb0bf2cb71fe8d.webp" data-color="NAVY" data-front="assets/embedded-09203d7e383897.webp" data-name="Navy Studio Tee" data-price="EGP 750" data-product-url="" data-side="assets/embedded-42c6cd5e39e3be.webp" type="button">
+<img alt="Navy Studio Tee front" data-view="front" draggable="false" loading="lazy" src="assets/embedded-09203d7e383897.webp"/><img alt="Navy Studio Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-42c6cd5e39e3be.webp"/><span class="bqrail__item-label">05 / NAVY</span>
 </button>
-<button class="bqrail__item" type="button" data-audience="men" data-name="Stone Weekend Tee" data-price="EGP 730" data-color="STONE" data-front="assets/embedded-a915a9e47b9c84.webp" data-back="assets/embedded-a97a0a680fc938.webp" data-side="assets/embedded-0f64e92b48b0e6.webp" data-product-url="" aria-pressed="false" aria-label="Explore Stone Weekend Tee">
-<img data-view="front" src="assets/embedded-a915a9e47b9c84.webp" alt="Stone Weekend Tee front" loading="lazy" draggable="false"><img data-view="side" src="assets/embedded-0f64e92b48b0e6.webp" alt="Stone Weekend Tee side" loading="lazy" draggable="false"><span class="bqrail__item-label">06 / STONE</span>
+<button aria-label="Explore Stone Weekend Tee" aria-pressed="false" class="bqrail__item" data-audience="men" data-back="assets/embedded-a97a0a680fc938.webp" data-color="STONE" data-front="assets/embedded-a915a9e47b9c84.webp" data-name="Stone Weekend Tee" data-price="EGP 730" data-product-url="" data-side="assets/embedded-0f64e92b48b0e6.webp" type="button">
+<img alt="Stone Weekend Tee front" data-view="front" draggable="false" loading="lazy" src="assets/embedded-a915a9e47b9c84.webp"/><img alt="Stone Weekend Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-0f64e92b48b0e6.webp"/><span class="bqrail__item-label">06 / STONE</span>
+</button><button aria-label="Explore Washed Cloud Tee" aria-pressed="false" class="bqrail__item" data-audience="men" data-back="assets/embedded-45c78fd78f671f.webp" data-color="WHITE" data-front="assets/embedded-a16b1d402200d2.webp" data-name="Washed Cloud Tee" data-price="EGP 710" data-product-url="" data-side="assets/embedded-08156c6d200fb7.webp" type="button">
+<img alt="Washed Cloud Tee front" data-view="front" draggable="false" loading="eager" src="assets/embedded-a16b1d402200d2.webp"/><img alt="Washed Cloud Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-08156c6d200fb7.webp"/><span class="bqrail__item-label">07 / WHITE</span>
+</button><button aria-label="Explore Slate Essential Tee" aria-pressed="false" class="bqrail__item" data-audience="men" data-back="assets/embedded-eb0bf2cb71fe8d.webp" data-color="NAVY" data-front="assets/embedded-09203d7e383897.webp" data-name="Slate Essential Tee" data-price="EGP 750" data-product-url="" data-side="assets/embedded-42c6cd5e39e3be.webp" type="button">
+<img alt="Slate Essential Tee front" data-view="front" draggable="false" loading="lazy" src="assets/embedded-09203d7e383897.webp"/><img alt="Slate Essential Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-42c6cd5e39e3be.webp"/><span class="bqrail__item-label">08 / NAVY</span>
+</button><button aria-label="Explore Sand Studio Tee" aria-pressed="false" class="bqrail__item" data-audience="men" data-back="assets/embedded-bef168600eb398.webp" data-color="SAND" data-front="assets/embedded-b53a2c6f64dee7.webp" data-name="Sand Studio Tee" data-price="EGP 720" data-product-url="" data-side="assets/embedded-ebdb36c05b320a.webp" type="button">
+<img alt="Sand Studio Tee front" data-view="front" draggable="false" loading="eager" src="assets/embedded-b53a2c6f64dee7.webp"/><img alt="Sand Studio Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-ebdb36c05b320a.webp"/><span class="bqrail__item-label">09 / SAND</span>
+</button><button aria-label="Explore Deep Charcoal Tee" aria-pressed="false" class="bqrail__item" data-audience="men" data-back="assets/embedded-e76bbebaae9648.webp" data-color="CHARCOAL" data-front="assets/embedded-a8eae638e9c4c7.webp" data-name="Deep Charcoal Tee" data-price="EGP 760" data-product-url="" data-side="assets/embedded-8df4fad8b186f0.webp" type="button">
+<img alt="Deep Charcoal Tee front" data-view="front" draggable="false" loading="eager" src="assets/embedded-a8eae638e9c4c7.webp"/><img alt="Deep Charcoal Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-8df4fad8b186f0.webp"/><span class="bqrail__item-label">10 / CHARCOAL</span>
 </button>
-<button class="bqrail__item" type="button" data-audience="women" data-name="Sand Relaxed Tee" data-price="EGP 720" data-color="SAND" data-front="assets/embedded-b53a2c6f64dee7.webp" data-back="assets/embedded-bef168600eb398.webp" data-side="assets/embedded-ebdb36c05b320a.webp" data-product-url="" aria-pressed="false" aria-label="Explore Sand Relaxed Tee">
-<img data-view="front" src="assets/embedded-b53a2c6f64dee7.webp" alt="Sand Relaxed Tee front" loading="eager" draggable="false"><img data-view="side" src="assets/embedded-ebdb36c05b320a.webp" alt="Sand Relaxed Tee side" loading="lazy" draggable="false"><span class="bqrail__item-label">01 / SAND</span>
+<button aria-label="Explore Sand Relaxed Tee" aria-pressed="false" class="bqrail__item" data-audience="women" data-back="assets/embedded-bef168600eb398.webp" data-color="SAND" data-front="assets/embedded-b53a2c6f64dee7.webp" data-name="Sand Relaxed Tee" data-price="EGP 720" data-product-url="" data-side="assets/embedded-ebdb36c05b320a.webp" type="button">
+<img alt="Sand Relaxed Tee front" data-view="front" draggable="false" loading="eager" src="assets/embedded-b53a2c6f64dee7.webp"/><img alt="Sand Relaxed Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-ebdb36c05b320a.webp"/><span class="bqrail__item-label">01 / SAND</span>
 </button>
-<button class="bqrail__item" type="button" data-audience="women" data-name="Cloud Essential Tee" data-price="EGP 690" data-color="WHITE" data-front="assets/embedded-a16b1d402200d2.webp" data-back="assets/embedded-45c78fd78f671f.webp" data-side="assets/embedded-08156c6d200fb7.webp" data-product-url="" aria-pressed="false" aria-label="Explore Cloud Essential Tee">
-<img data-view="front" src="assets/embedded-a16b1d402200d2.webp" alt="Cloud Essential Tee front" loading="eager" draggable="false"><img data-view="side" src="assets/embedded-08156c6d200fb7.webp" alt="Cloud Essential Tee side" loading="lazy" draggable="false"><span class="bqrail__item-label">02 / WHITE</span>
+<button aria-label="Explore Cloud Essential Tee" aria-pressed="false" class="bqrail__item" data-audience="women" data-back="assets/embedded-45c78fd78f671f.webp" data-color="WHITE" data-front="assets/embedded-a16b1d402200d2.webp" data-name="Cloud Essential Tee" data-price="EGP 690" data-product-url="" data-side="assets/embedded-08156c6d200fb7.webp" type="button">
+<img alt="Cloud Essential Tee front" data-view="front" draggable="false" loading="eager" src="assets/embedded-a16b1d402200d2.webp"/><img alt="Cloud Essential Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-08156c6d200fb7.webp"/><span class="bqrail__item-label">02 / WHITE</span>
 </button>
-<button class="bqrail__item" type="button" data-audience="women" data-name="Sage Everyday Tee" data-price="EGP 720" data-color="SAGE" data-front="assets/embedded-a4a8640fadc729.webp" data-back="assets/embedded-451b2370e8988e.webp" data-side="assets/embedded-91a0cf214f95e1.webp" data-product-url="" aria-pressed="false" aria-label="Explore Sage Everyday Tee">
-<img data-view="front" src="assets/embedded-a4a8640fadc729.webp" alt="Sage Everyday Tee front" loading="eager" draggable="false"><img data-view="side" src="assets/embedded-91a0cf214f95e1.webp" alt="Sage Everyday Tee side" loading="lazy" draggable="false"><span class="bqrail__item-label">03 / SAGE</span>
+<button aria-label="Explore Sage Everyday Tee" aria-pressed="false" class="bqrail__item" data-audience="women" data-back="assets/embedded-451b2370e8988e.webp" data-color="SAGE" data-front="assets/embedded-a4a8640fadc729.webp" data-name="Sage Everyday Tee" data-price="EGP 720" data-product-url="" data-side="assets/embedded-91a0cf214f95e1.webp" type="button">
+<img alt="Sage Everyday Tee front" data-view="front" draggable="false" loading="eager" src="assets/embedded-a4a8640fadc729.webp"/><img alt="Sage Everyday Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-91a0cf214f95e1.webp"/><span class="bqrail__item-label">03 / SAGE</span>
 </button>
-<button class="bqrail__item" type="button" data-audience="women" data-name="Stone Weekend Tee" data-price="EGP 730" data-color="STONE" data-front="assets/embedded-a915a9e47b9c84.webp" data-back="assets/embedded-a97a0a680fc938.webp" data-side="assets/embedded-0f64e92b48b0e6.webp" data-product-url="" aria-pressed="false" aria-label="Explore Stone Weekend Tee">
-<img data-view="front" src="assets/embedded-a915a9e47b9c84.webp" alt="Stone Weekend Tee front" loading="lazy" draggable="false"><img data-view="side" src="assets/embedded-0f64e92b48b0e6.webp" alt="Stone Weekend Tee side" loading="lazy" draggable="false"><span class="bqrail__item-label">04 / STONE</span>
+<button aria-label="Explore Stone Weekend Tee" aria-pressed="false" class="bqrail__item" data-audience="women" data-back="assets/embedded-a97a0a680fc938.webp" data-color="STONE" data-front="assets/embedded-a915a9e47b9c84.webp" data-name="Stone Weekend Tee" data-price="EGP 730" data-product-url="" data-side="assets/embedded-0f64e92b48b0e6.webp" type="button">
+<img alt="Stone Weekend Tee front" data-view="front" draggable="false" loading="lazy" src="assets/embedded-a915a9e47b9c84.webp"/><img alt="Stone Weekend Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-0f64e92b48b0e6.webp"/><span class="bqrail__item-label">04 / STONE</span>
 </button>
-<button class="bqrail__item" type="button" data-audience="women" data-name="Charcoal Boxy Tee" data-price="EGP 740" data-color="CHARCOAL" data-front="assets/embedded-a8eae638e9c4c7.webp" data-back="assets/embedded-e76bbebaae9648.webp" data-side="assets/embedded-8df4fad8b186f0.webp" data-product-url="" aria-pressed="false" aria-label="Explore Charcoal Boxy Tee">
-<img data-view="front" src="assets/embedded-a8eae638e9c4c7.webp" alt="Charcoal Boxy Tee front" loading="lazy" draggable="false"><img data-view="side" src="assets/embedded-8df4fad8b186f0.webp" alt="Charcoal Boxy Tee side" loading="lazy" draggable="false"><span class="bqrail__item-label">05 / CHARCOAL</span>
+<button aria-label="Explore Charcoal Boxy Tee" aria-pressed="false" class="bqrail__item" data-audience="women" data-back="assets/embedded-e76bbebaae9648.webp" data-color="CHARCOAL" data-front="assets/embedded-a8eae638e9c4c7.webp" data-name="Charcoal Boxy Tee" data-price="EGP 740" data-product-url="" data-side="assets/embedded-8df4fad8b186f0.webp" type="button">
+<img alt="Charcoal Boxy Tee front" data-view="front" draggable="false" loading="lazy" src="assets/embedded-a8eae638e9c4c7.webp"/><img alt="Charcoal Boxy Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-8df4fad8b186f0.webp"/><span class="bqrail__item-label">05 / CHARCOAL</span>
 </button>
-<button class="bqrail__item" type="button" data-audience="women" data-name="Navy Studio Tee" data-price="EGP 750" data-color="NAVY" data-front="assets/embedded-09203d7e383897.webp" data-back="assets/embedded-eb0bf2cb71fe8d.webp" data-side="assets/embedded-42c6cd5e39e3be.webp" data-product-url="" aria-pressed="false" aria-label="Explore Navy Studio Tee">
-<img data-view="front" src="assets/embedded-09203d7e383897.webp" alt="Navy Studio Tee front" loading="lazy" draggable="false"><img data-view="side" src="assets/embedded-42c6cd5e39e3be.webp" alt="Navy Studio Tee side" loading="lazy" draggable="false"><span class="bqrail__item-label">06 / NAVY</span>
+<button aria-label="Explore Navy Studio Tee" aria-pressed="false" class="bqrail__item" data-audience="women" data-back="assets/embedded-eb0bf2cb71fe8d.webp" data-color="NAVY" data-front="assets/embedded-09203d7e383897.webp" data-name="Navy Studio Tee" data-price="EGP 750" data-product-url="" data-side="assets/embedded-42c6cd5e39e3be.webp" type="button">
+<img alt="Navy Studio Tee front" data-view="front" draggable="false" loading="lazy" src="assets/embedded-09203d7e383897.webp"/><img alt="Navy Studio Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-42c6cd5e39e3be.webp"/><span class="bqrail__item-label">06 / NAVY</span>
+</button><button aria-label="Explore The Soft White Tee" aria-pressed="false" class="bqrail__item" data-audience="women" data-back="assets/embedded-45c78fd78f671f.webp" data-color="WHITE" data-front="assets/embedded-a16b1d402200d2.webp" data-name="The Soft White Tee" data-price="EGP 690" data-product-url="" data-side="assets/embedded-08156c6d200fb7.webp" type="button">
+<img alt="The Soft White Tee front" data-view="front" draggable="false" loading="eager" src="assets/embedded-a16b1d402200d2.webp"/><img alt="The Soft White Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-08156c6d200fb7.webp"/><span class="bqrail__item-label">07 / WHITE</span>
+</button><button aria-label="Explore Charcoal City Tee" aria-pressed="false" class="bqrail__item" data-audience="women" data-back="assets/embedded-e76bbebaae9648.webp" data-color="CHARCOAL" data-front="assets/embedded-a8eae638e9c4c7.webp" data-name="Charcoal City Tee" data-price="EGP 740" data-product-url="" data-side="assets/embedded-8df4fad8b186f0.webp" type="button">
+<img alt="Charcoal City Tee front" data-view="front" draggable="false" loading="lazy" src="assets/embedded-a8eae638e9c4c7.webp"/><img alt="Charcoal City Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-8df4fad8b186f0.webp"/><span class="bqrail__item-label">08 / CHARCOAL</span>
+</button><button aria-label="Explore Sand Weekend Tee" aria-pressed="false" class="bqrail__item" data-audience="women" data-back="assets/embedded-bef168600eb398.webp" data-color="SAND" data-front="assets/embedded-b53a2c6f64dee7.webp" data-name="Sand Weekend Tee" data-price="EGP 720" data-product-url="" data-side="assets/embedded-ebdb36c05b320a.webp" type="button">
+<img alt="Sand Weekend Tee front" data-view="front" draggable="false" loading="eager" src="assets/embedded-b53a2c6f64dee7.webp"/><img alt="Sand Weekend Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-ebdb36c05b320a.webp"/><span class="bqrail__item-label">09 / SAND</span>
+</button><button aria-label="Explore Stone Relaxed Tee" aria-pressed="false" class="bqrail__item" data-audience="women" data-back="assets/embedded-a97a0a680fc938.webp" data-color="STONE" data-front="assets/embedded-a915a9e47b9c84.webp" data-name="Stone Relaxed Tee" data-price="EGP 730" data-product-url="" data-side="assets/embedded-0f64e92b48b0e6.webp" type="button">
+<img alt="Stone Relaxed Tee front" data-view="front" draggable="false" loading="lazy" src="assets/embedded-a915a9e47b9c84.webp"/><img alt="Stone Relaxed Tee side" data-view="side" draggable="false" loading="lazy" src="assets/embedded-0f64e92b48b0e6.webp"/><span class="bqrail__item-label">10 / STONE</span>
 </button></div>
-  </div>
-  <div class="bqrail__detail" aria-live="polite">
-   <div class="bqrail__count"><b>—</b><span class="bqrail__count-total"> / 06 — MEN EDIT</span></div>
-   <div class="bqrail__item-detail"><h3 class="bqrail__item-name">PICK YOUR PIECE</h3><div class="bqrail__item-meta">HOVER OR TAP ANY HANGER TO START</div></div>
-   <button type="button" class="bqrail__explore" data-open-viewer disabled>EXPLORE <span aria-hidden="true">↗</span></button>
-  </div>
-  <div class="bqrail__bottom"><span>GOOD BASICS. BETTER DAYS.</span><span>BEQUEM® / INTERACTIVE EDIT</span></div>
- </div>
- <div class="bqrail__viewer" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Explore the selected garment">
-  <div class="bqrail__viewer-top"><span class="bqrail__viewer-logo">BEQUEM</span><div class="bqrail__viewer-top-right"><span>ON THE RAIL / THE EDIT</span><button type="button" class="bqrail__close" aria-label="Close product exploration">×</button></div></div>
-  <div class="bqrail__viewer-content">
-   <div class="bqrail__viewer-img-wrap"><img class="bqrail__viewer-photo" alt="Selected T-shirt" src="" /></div>
-   <div class="bqrail__viewer-info">
-    <div class="bqrail__viewer-kicker">THE EVERYDAY ROTATION / A CLOSER LOOK</div>
-    <h2 class="bqrail__viewer-name">Essential Tee</h2>
-    <div class="bqrail__viewer-meta">THE EVERYDAY EDIT</div><div class="bqrail__viewer-price">EGP 690</div>
-    <div class="bqrail__sides" role="group" aria-label="Product view"><button type="button" class="bqrail__side-button" data-side="front" aria-pressed="true">FRONT</button><button type="button" class="bqrail__side-button" data-side="back" aria-pressed="false">BACK</button></div>
-    <div class="bqrail__viewer-actions"><span class="bqrail__viewer-count">01 / 06</span><a class="bqrail__shop" href="#">VIEW IN SHOP <span aria-hidden="true">↗</span></a></div>
-    <div class="bqrail__demo-notice" aria-live="polite"></div>
-   </div>
-  </div><div class="bqrail__viewer-footer"></div>
- </div>
+</div>
+<div aria-live="polite" class="bqrail__detail">
+<div class="bqrail__count"><b>—</b><span class="bqrail__count-total"> / 10 — MEN EDIT</span></div>
+<div class="bqrail__item-detail"><h3 class="bqrail__item-name">PICK YOUR PIECE</h3><div class="bqrail__item-meta">HOVER OR TAP ANY HANGER TO START</div></div>
+<button class="bqrail__explore" data-open-viewer="" disabled="" type="button">EXPLORE <span aria-hidden="true">↗</span></button>
+</div>
+<div class="bqrail__bottom"><span>GOOD BASICS. BETTER DAYS.</span><span>BEQUEM® / INTERACTIVE EDIT</span></div>
+</div>
+<div aria-hidden="true" aria-label="Explore the selected garment" aria-modal="true" class="bqrail__viewer" role="dialog">
+<div class="bqrail__viewer-top"><span class="bqrail__viewer-logo">BEQUEM</span><div class="bqrail__viewer-top-right"><span>ON THE RAIL / THE EDIT</span><button aria-label="Close product exploration" class="bqrail__close" type="button">×</button></div></div>
+<div class="bqrail__viewer-content">
+<div class="bqrail__viewer-img-wrap"><img alt="Selected T-shirt" class="bqrail__viewer-photo" src=""/></div>
+<div class="bqrail__viewer-info">
+<div class="bqrail__viewer-kicker">THE EVERYDAY ROTATION / A CLOSER LOOK</div>
+<h2 class="bqrail__viewer-name">Essential Tee</h2>
+<div class="bqrail__viewer-meta">THE EVERYDAY EDIT</div><div class="bqrail__viewer-price">EGP 690</div><div aria-label="Product view" class="bqrail__sides" role="group"><button aria-pressed="true" class="bqrail__side-button" data-side="front" type="button">FRONT</button><button aria-pressed="false" class="bqrail__side-button" data-side="back" type="button">BACK</button></div>
+<div class="bqrail__purchase" aria-label="Choose size and quantity for demo cart">
+      <div class="bqrail__purchase-line"><strong>CHOOSE YOUR SIZE</strong><span>RELAXED EVERYDAY FIT</span></div>
+      <div class="bqrail__sizes" role="group" aria-label="Size">
+      <button type="button" data-rail-size="S" aria-pressed="false">S</button>
+      <button type="button" data-rail-size="M" aria-pressed="true">M</button>
+      <button type="button" data-rail-size="L" aria-pressed="false">L</button>
+      <button type="button" data-rail-size="XL" aria-pressed="false">XL</button>
+      </div>
+      <div class="bqrail__purchase-bottom">
+       <div class="bqrail__qty" role="group" aria-label="Quantity"><button type="button" data-rail-qty="-1" aria-label="Decrease quantity">−</button><output class="bqrail__qty-value">1</output><button type="button" data-rail-qty="1" aria-label="Increase quantity">+</button></div>
+       <button type="button" class="bqrail__add-bag">ADD TO BAG <span aria-hidden="true">↗</span></button>
+      </div>
+      <small class="bqrail__cart-hint">DEMO CART — NO REAL CHECKOUT</small>
+    </div>
+    <div class="bqrail__viewer-actions"><span class="bqrail__viewer-count">01 / 10</span><a class="bqrail__shop" href="#">VIEW IN SHOP <span aria-hidden="true">↗</span></a></div>
+<div aria-live="polite" class="bqrail__demo-notice"></div>
+</div>
+</div><div class="bqrail__viewer-footer"></div>
+</div>
 </section><div id="rail-legacy-compat" aria-hidden="true" style="display:none!important">
   <div id="rail-scroll"></div><div id="rail-count"></div><div id="rail-name"></div><div id="rail-meta"></div>
   <button id="r-men"></button><button id="r-women"></button>
@@ -601,8 +696,7 @@ renderRail();renderProducts();if($('#product-view').classList.contains('visible'
 .bqrail__viewer.is-open{visibility:visible;opacity:1;pointer-events:auto;transform:translateY(0)}
 .bqrail__viewer-top{flex:0 0 auto;display:flex;justify-content:space-between;align-items:center;padding:19px clamp(22px,4vw,60px);height:78px;gap:15px}
 .bqrail__viewer-logo{font-size:19px;font-weight:750;letter-spacing:.26em}
-.bqrail__viewer-top-right{display:flex;align-items:center;gap:18px;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
-.bqrail__close{display:grid;place-items:center;width:42px;height:42px;background:none;border:1px solid var(--bq-border);border-radius:50%;font-size:21px!important;color:var(--bq-ink)}
+.bqrail__viewer-top-right{display:flex;align-items:center;gap:18px;font-size:10px;letter-spacing:.12em;text-transform:uppercase}.bqrail__close{display:grid;place-items:center;width:42px;height:42px;background:none;border:1px solid var(--bq-border);border-radius:50%;font-size:21px!important;color:var(--bq-ink)}
 .bqrail__viewer-content{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(320px,.7fr);max-width:1380px;width:100%;margin:auto;overflow:hidden;gap:28px;align-items:center;padding:0 clamp(20px,5vw,78px) 30px}
 .bqrail__viewer-img-wrap{height:100%;min-height:0;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .bqrail__viewer-photo{width:100%;height:100%;max-height:78vh;object-fit:contain;filter:drop-shadow(0 15px 18px rgba(26,26,22,.10));transition:opacity .15s,transform .23s;will-change:transform}
@@ -775,7 +869,7 @@ renderRail();renderProducts();if($('#product-view').classList.contains('visible'
     const audiences = ['men','women'].filter(g => all.some(item => item.dataset.audience === g));
     let audience = audiences[0] || 'men';
     let selections = {men: -1, women: -1}; // user-initiated focus only
-    let current = -1, modalItem = null, viewSide = 'front';
+    let current = -1, modalItem = null, viewSide = 'front', chosenSize = 'M', chosenQty = 1;
     let oldOverflow = '', prevFocus = null, pointerStart = null, swiped = false, swapTimer;
     let hoverFreezeUntil = 0;
     let hoveredPointer = null;
@@ -905,6 +999,7 @@ renderRail();renderProducts();if($('#product-view').classList.contains('visible'
       $('.bqrail__viewer-price').textContent=item.dataset.price||'';
       $('.bqrail__viewer-count').textContent=`${pad(current+1)} / ${pad(items().length)}`;
       $('.bqrail__demo-notice').textContent='';
+      chosenSize='M';chosenQty=1; syncPurchaseControls();
       photo.src=item.dataset.front||'';photo.alt=`${item.dataset.name||'T-shirt'} — front`;
       viewSide='front';
       $$('.bqrail__side-button').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.side==='front')));
@@ -926,27 +1021,42 @@ renderRail();renderProducts();if($('#product-view').classList.contains('visible'
     }
     function chooseTarget(i, source='click'){
       if(source==='tap' && swiped) return;
-      if(i!==current) {focusIndex(i,'click');return;}
+      focusIndex(i,'click');
       openViewer(items()[i]);
+    }
+    function syncPurchaseControls(){
+      $$('.bqrail__sizes [data-rail-size]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.railSize===chosenSize)));
+      const display=$('.bqrail__qty-value');if(display)display.textContent=chosenQty;
+    }
+    function addRailToBag(){
+      if(!modalItem)return;
+      const amount=Number((modalItem.dataset.price||'').replace(/[^\d.]/g,''));
+      if(!Number.isFinite(amount)||amount<=0)return;
+      const sku=modalItem.dataset.name||'Essential Tee';
+      const productColor=modalItem.dataset.color||'WHITE';
+      const key=`on-rail:${audience}:${sku}:${productColor}:${chosenSize}`;
+      const existing=cart.find(row=>row.builder&&row.id===key);
+      if(existing)existing.qty+=chosenQty;
+      else cart.push({builder:true,id:key,gender:audience,name:sku,price:amount,color:productColor.toLowerCase(),type:'tee',qty:chosenQty,size:chosenSize,photo:modalItem.dataset.front||''});
+      renderCart();
+      closeViewer();
+      toggleCart(true);
     }
 
     section.addEventListener('click',event=>{
       const audienceBtn=event.target.closest('[data-select-audience]');if(audienceBtn){changeAudience(audienceBtn.dataset.selectAudience);return;}
-      const nav=event.target.closest('[data-step]');if(nav){move(Number(nav.dataset.step));return;}
-      const spot=event.target.closest('[data-rail-target]');
+      const nav=event.target.closest('[data-step]');if(nav){move(Number(nav.dataset.step));return;}      const spot=event.target.closest('[data-rail-target]');
       if(spot&&!viewer.classList.contains('is-open')){
         if(swiped)return;
-        let index=Number(spot.dataset.railTarget);
-        // When focus animates under the cursor, its old side slot must stay the click's identity.
-        const latched=hoveredPointer && hoverCapable.matches &&
-          Math.hypot(event.clientX-hoveredPointer.x,event.clientY-hoveredPointer.y)<42;
-        if(latched) index=hoveredPointer.index;
-        if(index!==current){focusIndex(index);lastClickIndex=index;return;}
-        // Hover never counts as a confirmed click. A first click locks the piece;
-        // a second click, or the explicit Explore button, opens the viewer.
-        if(lastClickIndex!==index){lastClickIndex=index;return;}
-        openViewer(items()[index]);return;
+        const index=Number(spot.dataset.railTarget);
+        // Immediate open with one click; keep zone identity independent from the large garment image.
+        chooseTarget(index,'click');return;
       }
+      const sizeBtn=event.target.closest('[data-rail-size]');
+      if(sizeBtn){chosenSize=sizeBtn.dataset.railSize;syncPurchaseControls();return;}
+      const qtyBtn=event.target.closest('[data-rail-qty]');
+      if(qtyBtn){chosenQty=clamp(chosenQty+Number(qtyBtn.dataset.railQty),1,10);syncPurchaseControls();return;}
+      if(event.target.closest('.bqrail__add-bag')){addRailToBag();return;}
       if(event.target.closest('[data-open-viewer]')){openViewer();return;}
       if(event.target.closest('.bqrail__close')){closeViewer();return;}
       const sideBtn=event.target.closest('[data-side]');if(sideBtn){updateView(sideBtn.dataset.side);return;}
