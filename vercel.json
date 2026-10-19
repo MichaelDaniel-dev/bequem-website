@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "buildCommand": "bash scripts/build.sh",
+  "outputDirectory": "_site",
+  "framework": null
+}
