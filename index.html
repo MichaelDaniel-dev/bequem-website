@@ -303,6 +303,16 @@ html,body{max-width:100%;overflow-x:clip}
 }
 @media(prefers-reduced-motion:reduce){#favorites .pc-visual .photo-shot img{transition:none!important}}
 </style>
+
+<style id="bq-v14-1-white-large-product-cards">
+/* Seamless white product grid; larger imagery on desktop and mobile. */
+#favorites,#favorites .product-grid,#favorites .product-card,#favorites .pc-visual,#favorites .pc-visual.alt,#favorites .pc-visual.sand,#favorites .pc-visual.sage,#favorites .pc-visual .photo-shot{background:#fff!important;background-color:#fff!important;box-shadow:none!important;border:0!important}
+#favorites .pc-visual{height:auto!important;min-height:0!important;aspect-ratio:4/5!important;overflow:hidden!important}
+#favorites .pc-visual .photo-shot img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;transform:scale(1.10)!important;filter:none!important}
+#favorites .product-card:hover .pc-visual .photo-shot img{transform:scale(1.135)!important}
+#favorites .product-grid{gap:clamp(10px,1.45vw,24px)!important}
+@media(max-width:700px){#favorites .pc-visual{aspect-ratio:4/5!important}#favorites .pc-visual .photo-shot img{transform:scale(1.08)!important}#favorites .product-card:hover .pc-visual .photo-shot img{transform:scale(1.10)!important}}
+</style>
 </head>
 <body>
 <div class="ann">✳ &nbsp; THIS IS YOUR EVERYDAY ROTATION. <span>BETTER BY DESIGN.</span> &nbsp; ✳</div>
