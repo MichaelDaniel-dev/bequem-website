@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f3efe6"><meta name="description" content="BEQUEM — Gen Z lifestyle apparel Shopify concept prototype: interactive hanger rail, Men and Women, shop experience.">
-<title>BEQUEM — V14 Client Preview | Everyday, Better.</title>
+<title>BEQUEM — V15 Client Preview | Everyday, Better.</title>
 
 <style>
 :root{--ink:#292827;--cream:#f3efe6;--sand:#b9a588;--sage:#78816f;--white:#fff;--light:#e8e6e0;--muted:#74736f;--line:#d9d7d0;--r:8px;--display:'Manrope','Arial',sans-serif;--body:'DM Sans','Arial',sans-serif}
@@ -312,6 +312,18 @@ html,body{max-width:100%;overflow-x:clip}
 #favorites .product-card:hover .pc-visual .photo-shot img{transform:scale(1.135)!important}
 #favorites .product-grid{gap:clamp(10px,1.45vw,24px)!important}
 @media(max-width:700px){#favorites .pc-visual{aspect-ratio:4/5!important}#favorites .pc-visual .photo-shot img{transform:scale(1.08)!important}#favorites .product-card:hover .pc-visual .photo-shot img{transform:scale(1.10)!important}}
+</style>
+
+<style id="bq-v15-true-transparent-cutouts">
+/* Product Grid: real alpha-channel apparel assets, no photographic beige backing. */
+#favorites,#favorites .product-grid,#favorites .product-card,#favorites .pc-visual,#favorites .pc-visual.alt,#favorites .pc-visual.sand,#favorites .pc-visual.sage{background:#fff!important;border:0!important;box-shadow:none!important}
+#favorites .product-grid{gap:clamp(10px,1.55vw,26px)!important}
+#favorites .pc-visual{aspect-ratio:4/5!important;min-height:0!important;height:auto!important;overflow:hidden!important}
+#favorites .pc-visual .photo-shot{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;background:transparent!important;overflow:hidden!important;border:0!important}
+#favorites .pc-visual .photo-shot::after{content:none!important;display:none!important}
+#favorites .pc-visual .photo-shot img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;padding:0!important;margin:0!important;background:transparent!important;mix-blend-mode:normal!important;filter:none!important;transform:scale(1.025)!important;transition:transform .4s ease!important}
+#favorites .product-card:hover .pc-visual .photo-shot img{transform:scale(1.055)!important}
+@media(max-width:700px){#favorites .pc-visual{aspect-ratio:4/5!important}#favorites .pc-visual .photo-shot img{transform:scale(1.025)!important}#favorites .product-card:hover .pc-visual .photo-shot img{transform:scale(1.04)!important}}
 </style>
 </head>
 <body>
@@ -703,7 +715,7 @@ function cardPhoto(idx){
  women:['white','sage','beige-hoodie','charcoal','beige-hoodie','black','white','navy']
  };
  const a=galleries[gender]||galleries.men;
- return 'assets/editorial-'+a[idx%a.length]+'.webp';
+ return 'assets/editorial-'+a[idx%a.length]+'.webp?v=15';
 }
 function photoMarkup(src,cls,alt){return `<div class="${cls} photo-shot"><img src="${src}" alt="${safeText(alt||'BEQUEM product photo')}"></div>`}
 const V11_VARIANTS={"ivory": "assets/tee-white.webp", "white": "assets/tee-white.webp", "sand": "assets/tee-beige.webp", "sage": "assets/tee-sage.webp", "charcoal": "assets/tee-charcoal.webp", "black": "assets/tee-black.webp", "navy": "assets/tee-navy.webp", "coal": "assets/tee-charcoal.webp", "oat": "assets/tee-beige.webp"}; function variantPhoto(color,type,defaultPhoto){return ["tee","fitted"].includes(type)?(V11_VARIANTS[color]||defaultPhoto):defaultPhoto;} function railPair(idx){return RAIL_ONLY[idx % RAIL_ONLY.length];}
